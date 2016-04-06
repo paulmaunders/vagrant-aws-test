@@ -1,0 +1,5 @@
+---
+aws_access_key: changeme
+aws_secret_key: changeme
+aws_instance_name: "vagrant-aws-test-paul"
+aws_ssh_public_key_name: "paul-public-key-4096"
