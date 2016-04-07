@@ -1,5 +1,18 @@
 ---
-aws_access_key: changeme
-aws_secret_key: changeme
-aws_instance_name: "vagrant-aws-test-paul"
-aws_ssh_public_key_name: "paul-public-key-4096"
+# Essential AWS variables - you must change these
+aws_access_key: "changeme"
+aws_secret_key: "changeme"
+aws_instance_name: "changeme"
+aws_ssh_public_key_name: "changeme"
+aws_subnet_id: "subnet-changeme"
+aws_security_group: "sg-changeme"
+
+# Other AWS variables - can leave these as defaults for testing
+aws_region: "eu-west-1"
+aws_instance_type: "t2.small" # $14.6 per month as of April 2016
+aws_ami: "ami-33734044" # Centos 7
+aws_instance_username: "centos"
+aws_storage_size: 100
+
+# Local system settings
+config_ssh_private_key_path: "~/.ssh/id_rsa.pub"

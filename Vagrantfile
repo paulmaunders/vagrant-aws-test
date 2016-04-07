@@ -1,7 +1,9 @@
 Vagrant.configure("2") do |config|
   # ... other stuff
-
-  settings = YAML.load_file '.yml'  
+  
+  config.vm.box = "dummy"
+ 
+  settings = YAML.load_file 'settings.yml'  
 
   config.vm.provider :aws do |aws|
 
@@ -11,25 +13,28 @@ Vagrant.configure("2") do |config|
     aws.secret_access_key = settings ['aws_secret_key']
 
     aws.tags = {
-      'Name' => settings['aws_instance_name']
+      'Name' => settings['aws_instance_name'],
       'Project' => 'vagrant-aws-test'
     }
-
-    # Region Config
-    aws.region_config "eu-west-1" do |region|
-      # CentOS 7 images
-      region.ami = "ami-33734044"
-      region.keypair_name = settings['aws_ssh_public_key_name']
-    end
+    
+    aws.instance_type = settings['aws_instance_type'] # $14.6 per month as of April 2016
+    aws.ami = settings['aws_ami']
+    aws.keypair_name = settings['aws_ssh_public_key_name']
+    aws.region = settings['aws_region']
+    aws.subnet_id = settings['aws_subnet_id']
+    aws.security_groups = [settings['aws_security_group']]
+    aws.associate_public_ip = true
 
     # Storage - $0.125 per GB/month as of April 2016, 100 GB = $12.50 per month
     aws.block_device_mapping = [{
       'DeviceName' => '/dev/sda1',
-      'Ebs.VolumeSize' => 100,
+      'Ebs.VolumeSize' => settings['aws_storage_size'],
       'Ebs.VolumeType' => 'gp2',
       'Ebs.DeleteOnTermination' => 'true' }]
 
-    aws.instance_type = "t2.small" # $14.6 per month as of April 2016
+    # Override default Vagrant ssh keys
+    config.ssh.username = settings['aws_instance_username']
+    config.ssh.private_key_path = settings['config_ssh_private_key_path']
 
   end
 end 
