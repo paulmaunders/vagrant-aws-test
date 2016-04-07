@@ -18,6 +18,8 @@
     mysql_pid_file: /var/run/mariadb/mariadb.pid
 
   roles:
+
+    - geerlingguy.repo-remi
     - geerlingguy.ntp
     - geerlingguy.php
     - geerlingguy.php-mysql

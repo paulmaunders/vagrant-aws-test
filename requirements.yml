@@ -4,6 +4,9 @@
 #- name: geerlingguy.security
 #  src: geerlingguy.security
 
+- name: geerlingguy.repo-remi
+  src: geerlingguy.repo-remi
+
 - name: geerlingguy.ntp
   src: geerlingguy.ntp
 
