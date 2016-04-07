@@ -1,0 +1,20 @@
+#- name: geerlingguy.repo-epel
+#  src: geerlingguy.repo-epel
+
+#- name: geerlingguy.security
+#  src: geerlingguy.security
+
+- name: geerlingguy.ntp
+  src: geerlingguy.ntp
+
+- name: geerlingguy.apache
+  src: geerlingguy.apache
+
+- name: geerlingguy.mysql
+  src: geerlingguy.mysql
+
+- name: geerlingguy.php
+  src: geerlingguy.php
+
+- name: geerlingguy.php-mysql
+  src: geerlingguy.php-mysql

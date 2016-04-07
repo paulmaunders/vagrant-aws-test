@@ -1,0 +1,25 @@
+---
+- name: Example LAMP stack
+  hosts: all
+  become: yes
+  become_user: root
+
+  vars:
+
+    mysql_packages:
+      - mariadb
+      - mariadb-server
+      - mariadb-libs
+      - MySQL-python
+      - perl-DBD-MySQL
+    mysql_daemon: mariadb
+    mysql_log_error: /var/log/mariadb/mariadb.log
+    mysql_syslog_tag: mariadb
+    mysql_pid_file: /var/run/mariadb/mariadb.pid
+
+  roles:
+    - geerlingguy.ntp
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.mysql
+    - geerlingguy.apache

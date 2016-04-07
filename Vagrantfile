@@ -37,4 +37,16 @@ Vagrant.configure("2") do |config|
     config.ssh.private_key_path = settings['config_ssh_private_key_path']
 
   end
+
+  config.vm.define "origin" do |org|
+
+    org.vm.hostname = "origin"
+
+    org.vm.provision "ansible" do |ansible|
+      ansible.playbook = "site.yml"
+      ansible.verbose = "vvvv"
+    end
+
+  end
+
 end 
