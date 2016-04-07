@@ -1,5 +1,5 @@
 ## Setup ##
-Install the vagrant-aws plugin
+Install the [vagrant-aws plugin](https://github.com/mitchellh/vagrant-aws)
 ```
 vagrant plugin install vagrant-aws
 ```
