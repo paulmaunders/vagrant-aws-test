@@ -17,3 +17,12 @@ Launch vagrant
 ```
 vagrant up
 ```
+SSH into the server
+```
+vagrant ssh
+```
+## Debugging errors ##
+If you have any difficulties with the above commands, you should enable debugging to get more information from Vagrant.
+```
+export VAGRANT_LOG=debug
+```
