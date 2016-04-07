@@ -21,6 +21,15 @@ SSH into the server.
 vagrant ssh
 ```
 You may have to wait a couple of minutes for the instance to be created before you can connect via SSH.
+## Provisioning with Ansible ##
+You can test provisioning the vagrant aws instance with Ansible. Before you do so you will need to install some ansible roles. This can be done with
+    
+    ansible-galaxy install -r requirements.yml
+
+You can then provision with 
+
+    vagrant provision
+ 
 ## Configuration Options ##
 The options you can configure in settings.yml are as follows.
 
