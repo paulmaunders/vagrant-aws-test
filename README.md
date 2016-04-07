@@ -16,10 +16,11 @@ Launch vagrant
 ```
 vagrant up
 ```
-SSH into the server
+SSH into the server. 
 ```
 vagrant ssh
 ```
+You may have to wait a couple of minutes for the instance to be created before you can connect via SSH.
 ## Configuration Options ##
 The options you can configure in settings.yml are as follows.
 
